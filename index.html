@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A simple, focused to-do list application.">
+  <title>Done Today | To-Do List</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <a class="brand" href="index.html"><span class="brand-mark">D</span> Done Today</a>
+      <time id="today"></time>
+    </header>
+
+    <section class="intro" aria-labelledby="title">
+      <p class="eyebrow">A little clarity goes a long way</p>
+      <h1 id="title">Make space for what matters.</h1>
+      <p class="subtitle">A calm place to collect today's tasks and keep moving.</p>
+    </section>
+
+    <section class="dashboard" aria-label="Task dashboard">
+      <div class="summary panel">
+        <div class="summary-top"><div><p class="eyebrow">Your day</p><h2 id="summaryTitle">Let's get started.</h2></div><span class="summary-icon">✓</span></div>
+        <div class="progress"><span id="progressBar"></span></div>
+        <div class="summary-bottom"><span id="progressText">0% complete</span><strong id="taskCount">0 tasks</strong></div>
+      </div>
+      <form id="taskForm" class="add-task panel">
+        <label for="taskInput">Add a task</label>
+        <div class="input-row"><input id="taskInput" name="task" type="text" placeholder="What needs doing?" maxlength="120" required><button type="submit" aria-label="Add task">+</button></div>
+      </form>
+    </section>
+
+    <section class="tasks-section" aria-labelledby="tasksTitle">
+      <div class="section-heading"><div><p class="eyebrow">Your list</p><h2 id="tasksTitle">Tasks</h2></div><button id="clearCompleted" class="quiet-button" type="button">Clear completed</button></div>
+      <div class="toolbar"><div class="filters" role="group" aria-label="Task filters"><button class="filter active" data-filter="all" type="button">All</button><button class="filter" data-filter="active" type="button">Active</button><button class="filter" data-filter="completed" type="button">Completed</button></div><label class="search"><span>⌕</span><input id="searchInput" type="search" placeholder="Find a task" aria-label="Find a task"></label></div>
+      <div id="taskList" class="task-list" aria-live="polite"></div>
+      <div id="emptyState" class="empty" hidden><span class="empty-check">✓</span><h3>Nothing here yet.</h3><p>Add a task above and give your day a clear next step.</p></div>
+    </section>
+    <footer><span>Done Today</span><span id="footerMessage">Small steps count.</span></footer>
+  </main>
+</body>
+</html>
