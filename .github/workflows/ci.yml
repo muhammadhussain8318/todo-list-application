@@ -1,0 +1,25 @@
+name: Validate To-Do List
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Run tests
+        run: python -m unittest discover -v
+      - name: Check frontend assets
+        run: test -s index.html && test -s styles.css && test -s app.js
